@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .card-img-top {
+            height: 250px;
+            padding-top: 10px;
+        }
+    </style>
+    <%- include('../components/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../components/header'); %>
+    </header>
+
+    <main>
+        <div class="row jumbotron">
+            <% for(var i=0; i < data.length; i++) { %>
+                <div class="card col-3" style="width: 18rem;">
+                    <img class="card-img-top" src='/files/<%= data[i].image_path %>' alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= data[i].name %></h5>
+                      <p class="card-text"><%= data[i].decription %></p>
+                      <a href="/<%= data[i].id %>" class="btn btn-primary">Go Watch</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../components/footer'); %>
+    </footer>
+
+</body>
+</html>

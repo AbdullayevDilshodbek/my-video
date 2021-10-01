@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+        .card-img-top {
+            height: 250px;
+            padding-top: 10px;
+        }
+        body {
+            margin: 40px auto;
+            /* max-width: 650px; */
+            line-height: 1.6;
+            font-size: 18px;
+            font-family: "Courier New", Courier, monospace;
+            color: #444;
+            padding: 0 10px;
+        }
+        h2 {
+            line-height: 1.2;
+        }
+    </style>
+    <%- include('../components/head'); %>
+</head>
+  <body class="container">
+
+    <header>
+        <%- include('../components/header'); %>
+    </header>
+    <main>
+        <h2>Online</h2>
+    <p id="desc">sads</p>
+    <p id="name"></p>
+    <video id="videoPlayer" width="650" controls muted="muted" autoplay>
+      <source src='/video/<%=id%>' type="video/mp4" />
+    </video>
+    <i></i>
+    <input type="text" value="<%=id%>" id="data" style="display: none;">
+    </main>
+
+    <footer>
+        <%- include('../components/footer'); %>
+    </footer>
+
+    <script>
+        let data = document.getElementById('data').value
+        data = JSON.parse(data)
+        document.getElementById('desc').innerText = data.decription
+        document.getElementById('name').innerText = data.title
+    </script>
+  </body>
+</html>
