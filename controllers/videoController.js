@@ -16,7 +16,7 @@ module.exports.playing = async (req, res) => {
         let data = await Video.findByPk(id)
         data = JSON.stringify(data)
         res.render('pages/playing', {
-            id: data
+            data
         });
     } catch (error) {
         res.status(400).send(error.message)
@@ -58,6 +58,13 @@ module.exports.video = async (req, res) => {
 
         // Stream the video chunk to the client
         videoStream.pipe(res);
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+}
+module.exports.login = async (req, res) => {
+    try {
+        res.render('admin-panel/login');
     } catch (error) {
         res.status(400).send(error.message)
     }

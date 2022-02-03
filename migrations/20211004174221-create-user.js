@@ -1,42 +1,36 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('videos', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      username: {
         type: Sequelize.STRING
       },
-      decription: {
+      full_name: {
         type: Sequelize.STRING
       },
-      video_path: {
+      password: {
         type: Sequelize.STRING
-      },
-      image_path: {
-        type: Sequelize.STRING
-      },
-      category_id: {
-        type: Sequelize.INTEGER
       },
       active: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('videos');
+    await queryInterface.dropTable('Users');
   }
 };
